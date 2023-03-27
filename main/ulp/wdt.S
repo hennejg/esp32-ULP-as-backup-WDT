@@ -18,8 +18,7 @@ entry:
       sub r1, r1, 1
       st r1, r0, 0
 
-      // dummy add to set ALU flags. jump if zero
-      add r1, r1, 0
+      // jump if zero
       jump bark, EQ
 
       halt
