@@ -33,10 +33,7 @@ static void init_ulp_program(void) {
 
   reset_ulp_wdt();
 
-  /*
-   * Set ULP wake up period to T = 20ms.
-   * Minimum pulse width has to be T * (ulp_debounce_counter + 1) = 100ms.
-   */
+  // Set ULP wake up period to T = 100ms.
   ulp_set_wakeup_period(0, 100 * 1000);
 
   /* Start the program */
