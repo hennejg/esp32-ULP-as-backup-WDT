@@ -56,6 +56,15 @@ int log_printf(const char *format, ...) {
 }
 
 void app_main(void) {
+  for (int i = 0; i < 3; i++) {
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    reset_ulp_wdt();
+  }
+
+  log_printf("Aux wdt reset occurred: %x, reset reason: %d\n",
+             (int16_t)(ulp_wdt_reset_occurred & UINT16_MAX),
+             esp_reset_reason());
+
   init_ulp_program();
 
   // be well-behaved for 10s
