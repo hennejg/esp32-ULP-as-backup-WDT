@@ -25,7 +25,5 @@ entry:
 
 // reset main CPU
 bark:
-      // there is a macro for RTC_CNTL_SW_SYS_RST but we need the bit number
-      // here, not the mask...
-      WRITE_RTC_REG(RTC_CNTL_OPTIONS0_REG, 31, 1, 1)
+      WRITE_RTC_REG(RTC_CNTL_OPTIONS0_REG, RTC_CNTL_SW_SYS_RST_S, 1, 1)
       halt
